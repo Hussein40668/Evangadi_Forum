@@ -3,13 +3,13 @@ const dbConnection = require("../db/dbConfig");
 // Creating commands for db
 const users = `
   CREATE TABLE IF NOT EXISTS users (  
-    userid INT(20) NOT NULL AUTO_INCREMENT,  
+    user_id INT(20) NOT NULL AUTO_INCREMENT,  
     username VARCHAR(20) NOT NULL UNIQUE,  
     firstname VARCHAR(20) NOT NULL,  
     lastname VARCHAR(20) NOT NULL,  
     email VARCHAR(40) NOT NULL UNIQUE,  
     password VARCHAR(100) NOT NULL,  
-    PRIMARY KEY(userid)  
+    PRIMARY KEY(user_id)  
   );  
 `;
 
@@ -25,42 +25,45 @@ FOREIGN KEY (user_id) REFERENCES registration(user_id)
 
 const questions = `
   CREATE TABLE IF NOT EXISTS questions (
-    questionid INT(20) NOT NULL AUTO_INCREMENT,  
-    userid INT(20) NOT NULL,  
-    title VARCHAR(200) NOT NULL,  
-    description TEXT NOT NULL,  
-    tag VARCHAR(40),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,  
-    PRIMARY KEY(questionid),  
-    FOREIGN KEY(userid) REFERENCES users(userid) ON DELETE CASCADE
+id INT(20) NOT NULL AUTO_INCREMENT,
+question_id VARCHAR(100) NOT NULL UNIQUE,
+user_id INT(20) NOT NULL,
+title TEXT NOT NULL,
+description TEXT NOT NULL,
+tag VARCHAR(255),
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+likes INT(20)
+dislike INT(20)
+PRIMARY KEY (id,question_id),
+FOREIGN KEY (user_id) REFERENCES users(user_id));
   );
 `;
 
 const answers = `
   CREATE TABLE IF NOT EXISTS answers (  
-    answerid INT(20) NOT NULL AUTO_INCREMENT,  
-    userid INT(20) NOT NULL,  
-    questionid INT(20) NOT NULL,  
-    answer TEXT NOT NULL,  
-    likes INT(50) DEFAULT 0,  
-    dislikes INT(50) DEFAULT 0,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
-    PRIMARY KEY(answerid),  
-    FOREIGN KEY(questionid) REFERENCES questions(questionid) ON DELETE CASCADE,  
-    FOREIGN KEY(userid) REFERENCES users(userid) ON DELETE CASCADE  
+answer_id INT(20) NOT NULL AUTO_INCREMENT,
+user_id INT(20) NOT NULL,
+question_id VARCHAR(100) NOT NULL,
+answer TEXT NOT NULL,
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+likes INT(20)
+dislike INT(20)
+PRIMARY KEY (answer_id),
+FOREIGN KEY (question_id) REFERENCES questions(question_id),
+FOREIGN KEY (user_id) REFERENCES users(user_id) 
   );
 `;
 
 const replies = `
   CREATE TABLE IF NOT EXISTS replies (
-    replyid INT(20) AUTO_INCREMENT NOT NULL,
-    answerid INT(20) NOT NULL,
-    userid INT(20) NOT NULL,
+    reply_id INT(20) AUTO_INCREMENT NOT NULL,
+    answer_id INT(20) NOT NULL,
+    user_id INT(20) NOT NULL,
     reply TEXT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY (replyid),
-    FOREIGN KEY (answerid) REFERENCES answers(answerid) ON DELETE CASCADE,
-    FOREIGN KEY (userid) REFERENCES users(userid) ON DELETE CASCADE
+    PRIMARY KEY (reply_id),
+    FOREIGN KEY (answer_id) REFERENCES answers(answerid) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES users(userid) ON DELETE CASCADE
   );
 `;
 
