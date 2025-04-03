@@ -9,7 +9,7 @@ function App() {
   const [currentQuestions, setCurrentQuestions] = useState([]);
   const [currentAnswers, setCurrentAnswers] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-    const [display, setDisplay] = useState(false);
+  const [display, setDisplay] = useState(false);
   const token = localStorage.getItem("token");
   const userOnStorage = localStorage.getItem("user");
 
