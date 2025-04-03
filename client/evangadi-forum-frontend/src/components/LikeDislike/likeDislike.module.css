@@ -1,0 +1,29 @@
+.likesButtons {
+  background-color: none;
+  padding: 0;
+  width: 10px;
+}
+.liked  .likedIcon {
+  color: #f57b2f;
+  font-size: 1rem;
+  transform: scale(1.1);
+}
+.likedIcon ,.disLikedIcon {
+  margin-right: 0 !important;
+}
+.likeText {
+  margin-right: 10px;
+}
+.disliked .disLikedIcon {
+  color: #f57b2f;
+  transform: scale(1.1);
+}
+.tagAndLike_container {
+  display: flex;
+}
+.like_container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  width: 80px;
+}
