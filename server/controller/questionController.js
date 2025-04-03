@@ -1,6 +1,6 @@
 const { StatusCodes } = require("http-status-codes");
 const { v4: uuidv4 } = require("uuid");
-const keywords = require("../Utility/keywords");
+const keywords = require("../utility/keywords");
 const db = require("../db/dbConfig");
 async function allQuestions(req, res) {
   try {
