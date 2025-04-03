@@ -3,6 +3,7 @@ const db = require("../db/dbConfig");
 const bcrypt = require("bcrypt");
 const { StatusCodes } = require("http-status-codes");
 const jwt = require("jsonwebtoken");
+
 // Register Controller
 async function register(req, res) {
   const { username, firstname, lastname, email, password } = req.body;
@@ -34,6 +35,7 @@ async function register(req, res) {
       "INSERT INTO registration (username,email,password) VALUES (?,?,?) ",
       [username, email, hashedPassword]
     );
+
     const user_id = registrationResult.insertId;
     await db.query(
       "INSERT INTO profile (user_id,firstname,lastname) VALUES (?,?,?) ",
@@ -75,9 +77,11 @@ async function login(req, res) {
     }
     const username = user[0].username;
     const userid = user[0].user_id;
-    const token = jwt.sign({ username, userid }, "secret", { expiresIn: "1d" });
-    return res
-      .status(StatusCodes.OK)
+    const token = jwt.sign({ username, userid }, process.env.JWT_SECRET, {
+      expiresIn: "1d",
+    });
+
+    return res.status(StatusCodes.OK)
       .json({ msg: "user Login Successful ", token, userid });
   } catch (error) {
     console.log(error.message);

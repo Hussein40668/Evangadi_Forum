@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const authHeader = require("../MiddleWare/authMiddleware");
+const authMiddleware = require("../middleWare/authMiddleware");
 const {
   allQuestions,
   postQuestion,
@@ -11,11 +11,11 @@ const {
     likedQuestions,
   
 } = require("../controller/questionController");
-router.get("/all-questions", authHeader, allQuestions);
-router.get("/oldest-questions", authHeader, oldestQuestions);
-router.get("/liked-questions", authHeader, likedQuestions);
-router.post("/post-question", authHeader, postQuestion);
-router.get("/:question_id", authHeader, singleQuestion);
-router.patch("/like/:question_id", authHeader, likeQuestion);
-router.patch("/dislike/:question_id", authHeader, disLikeQuestion);
+router.get("/all-questions", authMiddleware, allQuestions);
+router.get("/oldest-questions", authMiddleware, oldestQuestions);
+router.get("/liked-questions", authMiddleware, likedQuestions);
+router.post("/post-question", authMiddleware, postQuestion);
+router.get("/:question_id", authMiddleware, singleQuestion);
+router.patch("/like/:question_id", authMiddleware, likeQuestion);
+router.patch("/dislike/:question_id", authMiddleware, disLikeQuestion);
 module.exports = router;

@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const authHeader = require("../MiddleWare/authMiddleware");
+const authMiddleware = require("../middleWare/authMiddleware");
 
 const {
   register,
@@ -15,10 +15,10 @@ router.post("/register", register);
 // Login route
 router.post("/login", login);
 // Check user
-router.get("/check", authHeader, checkUser);
+router.get("/check", authMiddleware, checkUser);
 //all user
-router.get("/", authHeader, allUsers);
+router.get("/", authMiddleware, allUsers);
 //top contributors
-router.get("/topContributors", authHeader, topContributors);
+router.get("/topContributors", authMiddleware, topContributors);
 
 module.exports = router;

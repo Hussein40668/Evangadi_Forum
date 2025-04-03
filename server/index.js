@@ -5,7 +5,11 @@ const port = 3000;
 const { StatusCodes } = require("http-status-codes");
 
 // Database Connection
-const db = require("./db/dbConfig");
+const dbConnection = require("./db/dbConfig");
+// for db creation
+const database_creation = require("./routes/dbCreationRoute");
+app.use("/", database_creation);
+
 app.use(cors());
 
 // json middleware to extract json data
@@ -24,6 +28,7 @@ app.use("/api/users", userRoutes);
 app.use("/api/question", questionRoute);
 // Answers Route middleware
 app.use("/api/answers", answerRoute);
+
 app.get("/", (req, res) => {
   res.status(StatusCodes.OK).json({ msg: "It is working" });
 });
