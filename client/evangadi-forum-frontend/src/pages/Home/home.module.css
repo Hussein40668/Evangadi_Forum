@@ -1,0 +1,435 @@
+/* Container */
+.container {
+  max-width: 1200px;
+  width: 90%;
+  /* margin: 0 auto; */
+  padding: 20px;
+  font-family: var(--primary-font);
+  overflow: hidden;
+}
+
+.home_main_wrapper {
+  overflow-x: hidden;
+}
+/* Welcome User Section */
+
+.profileContainer {
+  position: absolute;
+  top: 10px;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.profileIcon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.profileImage {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ddd;
+}
+
+.avatarIcon {
+  color: gray;
+}
+
+.profileText {
+  font-size: 12px;
+  color: gray;
+}
+
+.profileBox {
+  position: absolute;
+  top: 70px;
+  right: 0;
+  height: 55vh;
+  width: 250px;
+  background: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  border-radius: 8px;
+  transform: translateX(110%);
+  transition: transform 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+.profileBox.open {
+  transform: translateX(0);
+}
+
+.closeBtn {
+  background: none;
+  color: red;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.closeBtn:hover {
+  background: none;
+}
+
+.uploadLabel {
+  display: block;
+  background: lightgray;
+  padding: 5px;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.uploadInput {
+  display: none;
+}
+
+.Name {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 20px 0;
+}
+
+.bioSection {
+  margin: 15px 0;
+}
+
+.bioLabel {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.bioInput {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  min-height: 80px;
+}
+
+.uploadLabel {
+  display: block;
+  margin: 15px 0;
+  padding: 8px 12px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.uploadInput {
+  display: none;
+}
+
+.saveButton {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.saveButton:hover {
+  background-color: #45a049;
+}
+
+.saveButton:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+/* Ask Question Section */
+.askQuestionContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.askQuestionButton {
+  width: 170px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 9px;
+  cursor: pointer;
+  font-size: 1rem;
+  text-decoration: none;
+  text-align: center;
+  margin-left: auto;
+}
+
+.askQuestionButton:hover {
+  background-color: #0056b3;
+}
+
+.searchInput {
+  padding: 20px;
+  border: 1px solid #a2a2a2;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.searchInput:focus {
+  box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.75);
+  border-color: none;
+  border: none;
+}
+
+/* Questions Heading */
+.questionsHeading {
+  font-weight: 600;
+  margin-top: 20px;
+  padding-bottom: 20px;
+  font-size: 1.5rem;
+  border-bottom: 2px solid #ddd;
+  margin-bottom: 0;
+}
+
+/* List Group */
+.listGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+/* List Item */
+.listItem {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 2px solid #ddd;
+  text-decoration: none;
+  color: inherit;
+  transition: background-color 0.3s ease;
+}
+
+.listItem:hover {
+  background-color: #f4f4f4;
+}
+
+/* Profile Section */
+.profileSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px;
+  color: rgb(153, 153, 153);
+}
+
+.username {
+  font-size: 0.875rem;
+  color: #6c757d;
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+  width: 150px;
+}
+
+.tagItem {
+  margin-right: 1rem;
+  outline: 0.5px solid lightgray;
+  padding: 0.1rem 0.3rem;
+  border-radius: 0.3rem;
+}
+
+/* Question Text */
+.questionText {
+  flex-grow: 1;
+  font-weight: lighter;
+}
+
+.questionTitle {
+  text-align: start;
+  font-weight: 400;
+  margin: 0;
+}
+
+/* Loading and No Questions Text */
+.loadingText,
+.noQuestionsText {
+  text-align: center;
+  font-size: 1rem;
+}
+
+.noQuestionsText {
+  color: #dc3545;
+}
+
+/* Loading and No Questions Text */
+.loadingText,
+.noQuestionsText {
+  text-align: center;
+  font-size: 1rem;
+}
+
+.noQuestionsText {
+  color: #dc3545;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-block: 20px 0;
+  margin-left: 10px;
+  width: 50%;
+}
+
+.paginationButton {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.paginationButton:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+.questionMeta {
+  margin-top: 1.5rem;
+  margin-bottom: 0 !important;
+  display: flex;
+  gap: 1rem;
+}
+.questionMeta svg {
+  color: var(--old-button-hover-color);
+  margin-right: 0.8rem;
+}
+.questionMeta p {
+  color: rgb(0, 0, 0);
+  font-weight: 200;
+  margin-right: 1.5rem;
+  display: flex;
+  font-size: 0.9rem;
+}
+.nextIcon,
+.previousIcon {
+  display: none;
+}
+.likesButtons {
+  background-color: none;
+  padding: 0;
+  width: 10px;
+}
+.liked .likedIcon {
+  color: #f57b2f;
+  font-size: 1rem;
+  transform: scale(1.1);
+}
+.likedIcon,
+.disLikedIcon {
+  margin-right: 0 !important;
+}
+.likeText {
+  margin-right: 10px;
+}
+.disliked .disLikedIcon {
+  color: #f57b2f;
+  transform: scale(1.1);
+}
+.tagAndLike_container {
+  display: flex;
+}
+.like_container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  width: 80px;
+}
+.home_main_wrapper {
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+}
+.dashboardSpace {
+  margin: 0 80px;
+}
+
+.backtotop {
+  position: fixed;
+  bottom: 110px;
+  right: 15px;
+  background: white;
+  border-radius: 20px;
+  padding: 7px;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  font-size: 11px;
+  z-index: 1000;
+}
+.contributors {
+  width: 10%;
+}
+.buttonsWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.QuestionTypeButton {
+  background-color: white;
+  outline: 1px solid #007bff;
+  color: #007bff;
+}
+.QuestionTypeButton:hover {
+  background-color: #007bff;
+  color: white;
+}
+.QuestionTypeButton svg {
+  margin-right: 0.5rem;
+}
+.QuestionTypeButton {
+  margin-right: 0.7rem;
+}
+@media (max-width: 768px) {
+  .container {
+    padding: 3rem 2.5rem;
+    width: 85%;
+    margin: 0 auto;
+  }
+  .nextIcon,
+  .previousIcon {
+    display: block;
+  }
+
+  .next,
+  .previous {
+    display: none;
+  }
+  .paginationButton {
+    margin: 10px;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .tagAndLike_container {
+    display: none;
+  }
+  .askQuestionButton {
+    margin-left: 0;
+  }
+  .profileContainer {
+    top: 100px;
+    right: 40px;
+  }
+}
