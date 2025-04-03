@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { FaCircleArrowRight } from "react-icons/fa6";
 import styles from "./question.module.css";
-import axios from "axios";
+import axios from "../../API/axios";
 import { useNavigate } from "react-router-dom";
 import Dashboard from "../../components/Dashboard/Dashboard";
 const Question = () => {
@@ -20,8 +20,7 @@ const Question = () => {
     }
     const token = localStorage.getItem("token");
     try {
-      await axios.post(
-        "http://localhost:2017/api/question/post-question",
+      await axios.post("question/post-question",
         {
           title: titleValue,
           description: descriptionValue,
@@ -36,6 +35,7 @@ const Question = () => {
       title.current.value = "";
       description.current.value = "";
       navigate("/home");
+      
     } catch (error) {
       console.error("❌ Error posting question:", error.message);
       alert(`❌ Failed to post question: ${error.message}`);

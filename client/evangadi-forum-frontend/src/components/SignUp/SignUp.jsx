@@ -94,6 +94,7 @@ const SignUp = ({ toggleAuth }) => {
       const response = await axios.post("/users/register", formData);
       setSuccessMessage(response.data.msg);
       setErrors({});
+      
       if (response) {
         const { data } = await axios.post("/users/login", {
           email: formData.email,
